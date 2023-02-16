@@ -23,5 +23,8 @@ body {
 #root {
   margin: 0 24px;
   position: relative;
-  min-height: 100vh;
+  min-height: 20vh;
+}
+#loading{
+  margin: 0 24px;
 }

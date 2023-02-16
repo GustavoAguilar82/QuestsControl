@@ -6,7 +6,6 @@ function useLocalStorage(itemName, initialValue){  //nombre del elemento que que
     const [error, setError] = React.useState(false);
     const [loading, setLoading] = React.useState(true);
     const [item, setItem] =React.useState(initialValue);  //en los custom hook se pueden llamar los react Use oficiales
-
     React.useEffect(()=>{
         setTimeout(()=>{
             try {
@@ -22,16 +21,22 @@ function useLocalStorage(itemName, initialValue){  //nombre del elemento que que
     
                 setItem(parsedItem);
                 setLoading(false);
-            } catch (error) {
-                
+            } 
+            catch (error) {
+                setError(error)    
             }
-        }, 1000)
+        }, 2000)  //ESPERA A PROPOSITO. SIMULACION DE TRAER INFO DESDE DB
     });
   
     const saveItem = (newItem) => {
-      const stringifiedItem = JSON.stringify(newItem);    //simplemente me guarda los cambios en localS
-      localStorage.setItem(itemName, stringifiedItem);
-      setItem(newItem);                                  //uso setTodos para ejecutar los cambios
+        try {
+            const stringifiedItem = JSON.stringify(newItem);    //simplemente me guarda los cambios en localS
+            localStorage.setItem(itemName, stringifiedItem);
+            setItem(newItem); //uso setTodos para ejecutar los cambios
+        } catch (error) {
+            setError(Error)   
+        }                                 
+        
     };
 
     return {item, //recibe el elemento a guardar
@@ -41,3 +46,5 @@ function useLocalStorage(itemName, initialValue){  //nombre del elemento que que
 }
 
 export {useLocalStorage};
+
+

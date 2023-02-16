@@ -1,45 +1,76 @@
 import React from 'react';
 import { ToDoCounter } from './ToDoCounter.js';
+import { TodoContext } from './TodoContext/TodoContext.js'; 
 import { ToDoSearch } from "./ToDoSearch.js";
 import { ToDoList } from "./ToDoList.js";
 import { ToDoItem } from "./ToDoItem.js";
 import { CreateTodoButtom } from "./CreateToDoButtom.js";
+import { Modal } from "./Modal.js";
+import { TodoForm } from './TodoForm.js';
+import { Loading } from './Loading.js';
+import { Empty } from './Empty.js';
+import { AllCompleted } from './AllCompleted.js';
 
-function AppUI({
-    loading,
-    error,    
-    totalTodos,
-    completedTodos,
-    searchValue,
-    setSearchValue,
+function AppUI(){
+                    //vienen del provider, me traje solo lo que iba a usar del value 
+    const { error,    //esto es una funcion anonima que recibe parametros, un objeto
+    loading, 
     searchedTodos,
-    togglecompleteTodo,
-    deleteTodo
-}){
-    return(
-        <React.Fragment>
-        <ToDoCounter 
-          total={totalTodos}
-          completed = {completedTodos}
-        />    
-        <ToDoSearch 
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}/> 
-        <ToDoList>
-          {error && <p>Hubo un error, trata de recargar la página</p>}
-          {loading && <p>Cargando...</p>}
-          {(!loading && !searchedTodos.length) && <p>Crea tu primer misión</p>}  
+    searchValue, 
+    togglecompleteTodo, 
+    deleteTodo,
+    openModal,
+    setOpenModal,
+    allCompleted,
+    setAllCompleted
+    } = React.useContext(TodoContext);
+        
 
-          {searchedTodos.map(todo =>(
-            <ToDoItem 
-              key={todo.text} 
-              text={todo.text} 
-              completed={todo.completed} 
-              onComplete={() => togglecompleteTodo(todo.text)} 
-              onDelete={() => deleteTodo(todo.text)} 
-              />))}
+    return(
+     <React.Fragment>
+        
+        <ToDoCounter />
+
+        <ToDoList>
+            {error && <p>Oops, there was an error. Try to reload the page</p>}
+
+            {loading && (
+                <Loading>
+                </Loading>
+            )}  
+            {(!loading && !searchedTodos.length) && (
+                <Empty>  
+                </Empty>
+            )}
+
+            {(!loading && !!searchedTodos.length || !!searchValue) && (
+                <ToDoSearch />
+            )}     
+
+
+            {searchedTodos.map(todo =>(
+                <ToDoItem 
+                key={todo.text} 
+                text={todo.text} 
+                completed={todo.completed} 
+                onComplete={() => togglecompleteTodo(todo.text)} 
+                onDelete={() => deleteTodo(todo.text)} 
+                />))}
         </ToDoList>
-        <CreateTodoButtom />      
+
+        {!!openModal  &&(
+                <Modal>
+                    <TodoForm/>
+                </Modal>
+        )}
+
+        {!!allCompleted &&(
+                <Modal>
+                    <AllCompleted/>
+                </Modal>
+        )}
+
+        <CreateTodoButtom setOpenModal={setOpenModal} openModal={openModal}/>      
      </React.Fragment>
     );
 }
