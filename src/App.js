@@ -4,7 +4,7 @@ import { AppUI } from './AppUI';
 
 const defaultTodos=[
   {text:'Cortar cebolla', completed: true},
-  {text:'Tormar el curso de intro a react', completed:false},
+  {text:'Tomar el curso de intro a react', completed:false},
   {text:'Llorar con la llorona', completed:false}
 ];
 
