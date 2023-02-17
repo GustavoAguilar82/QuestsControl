@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/GustavoAguilar82/QuestsControl/static/css/main.0bd8c678.css",
+    "main.js": "/GustavoAguilar82/QuestsControl/static/js/main.d6ebd473.js",
+    "index.html": "/GustavoAguilar82/QuestsControl/index.html",
+    "main.0bd8c678.css.map": "/GustavoAguilar82/QuestsControl/static/css/main.0bd8c678.css.map",
+    "main.d6ebd473.js.map": "/GustavoAguilar82/QuestsControl/static/js/main.d6ebd473.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0bd8c678.css",
+    "static/js/main.d6ebd473.js"
+  ]
+}
