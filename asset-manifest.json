@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/QuestsControl/static/css/main.0bd8c678.css",
+    "main.css": "/QuestsControl/static/css/main.b8a3bc67.css",
     "main.js": "/QuestsControl/static/js/main.d6ebd473.js",
     "index.html": "/QuestsControl/index.html",
-    "main.0bd8c678.css.map": "/QuestsControl/static/css/main.0bd8c678.css.map",
+    "main.b8a3bc67.css.map": "/QuestsControl/static/css/main.b8a3bc67.css.map",
     "main.d6ebd473.js.map": "/QuestsControl/static/js/main.d6ebd473.js.map"
   },
   "entrypoints": [
-    "static/css/main.0bd8c678.css",
+    "static/css/main.b8a3bc67.css",
     "static/js/main.d6ebd473.js"
   ]
 }
