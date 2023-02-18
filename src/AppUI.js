@@ -10,6 +10,7 @@ import { TodoForm } from './TodoForm.js';
 import { Loading } from './Loading.js';
 import { Empty } from './Empty.js';
 import { AllCompleted } from './AllCompleted.js';
+import { LogoButtom } from './LogoButtom.js';
 
 function AppUI(){
                     //vienen del provider, me traje solo lo que iba a usar del value 
@@ -28,7 +29,8 @@ function AppUI(){
 
     return(
      <React.Fragment>
-        
+
+        <LogoButtom />
         <ToDoCounter />
 
         <ToDoList>
