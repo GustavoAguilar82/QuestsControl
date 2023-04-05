@@ -23,11 +23,11 @@
     background: rgb(36, 35, 37);
 }
 .cup{
-    position: relative;
-    left: 34%;
-    top: 120px;
-    width: 70px;
-    height: 75px;
+    position: absolute;
+    left: 37%;
+    top: 17vh;
+    width: 8vh;
+    height: 8vh;
     background: linear-gradient(to right, #f9f9f9, #d9d9d9);
     border-bottom-left-radius: 45%;
     border-bottom-right-radius: 45%;
@@ -80,8 +80,8 @@
     bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
-    width: 125px;
-    height: 50px;
+    width: 20vh;
+    height: 7vh;
     background: linear-gradient(to right, #f9f9f9, #e7e7e7);
     border-radius: 50%;
     box-shadow: 0 35px 35px rgba(0, 0, 0, 0.2);
